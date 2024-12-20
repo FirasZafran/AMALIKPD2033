@@ -1,0 +1,62 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package amalikpd2033_k131nkpd012;
+import java.util.Scanner;
+/**nextLine
+ *
+ * @author USER 17
+ */
+public class AMALIKPD2033_K131NKPD012 {
+
+   public static String dapatkanNama(Scanner input){
+       System.out.print("Masukkan Nama Pekerja:");
+       return input.nextLine();
+   }
+   
+   public static int dapatkanJumlahHari(Scanner input){
+    int hari;
+    while (true){
+        try{
+            System.out.print("Masukkan jumlah hari bekerja (hari):");
+           hari = Integer.parseInt(input.nextLine());
+           if (hari>=0 && hari<=31){
+               break; 
+           }else{
+               System.out.println("Hari tidak boleh melebihi 31 hari atau kurang dari 0 hari.");
+           }
+        }catch (NumberFormatException e){
+            System.out.println("Sila masukkan nombor yang sah");
+        }
+    }
+    return hari;
+    }
+   
+   public static double kiraGaji(int hari,double kadarSeKM){
+return hari*kadarSeKM;
+}
+   public static void paparRumusan(String nama,int hari,double jumlahGaji){
+       System.out.println("\nMasukan nama pekerja:");
+       System.out.println(nama);
+       System.out.println("Masukkan jumlah hari bekerja(hari):");
+       System.out.println(hari);
+       System.out.println("\nRumusan Gaji perjalanan bagi" +nama);
+       System.out.println("Jumlah hari bekerja:"+hari+"hari");
+       System.out.printf("JUMLAH GAJI ADALAH:RM%.2f\n",jumlahGaji);
+   }
+   public static void main(String[]args){
+       final double KADAR_SE_KM=160.00;
+       Scanner input = new Scanner(System.in); 
+       
+       String nama=dapatkanNama(input);
+       int hari=dapatkanJumlahHari(input);
+    
+double jumlahElaun = kiraGaji(hari,KADAR_SE_KM);
+       
+paparRumusan(nama,hari,jumlahElaun);
+
+input.close();
+
+   }
+    }
